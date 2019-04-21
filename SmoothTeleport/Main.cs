@@ -24,10 +24,10 @@ namespace SmoothTeleport
 
         public Main()
         {
-            teleporter_list[0].ActivateTeleporter();
-            teleporter_list[1].ActivateTeleporter();
-            teleporter_list[2].ActivateTeleporter();
-            teleporter_list[3].ActivateTeleporter();
+            foreach (Teleporter item in teleporter_list)
+            {
+                item.ActivateTeleporter();
+            }
         }
     }
 
@@ -79,12 +79,10 @@ namespace SmoothTeleport
         {
             if (distance_to_first_point <= 2 && API.IsControlJustPressed(1, 18))
             {
-                //goto 2
                 await FadeAndTeleport(second_point);
             }
             else if (distance_to_second_point <= 2 && API.IsControlJustPressed(1, 18))
             {
-                //goto 1
                 await FadeAndTeleport(first_point);
             }
         }
